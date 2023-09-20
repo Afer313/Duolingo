@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Duolingo</title>
+  </head>
+  <body>
+    <div class="content-container">
+      <div class="status-bar">
+        <button class="close-btn">&times;</button>
+        <div class="level-score-core">
+          <div class="level-score-indicator">
+            <div class="indicator-inner"></div>
+          </div>
+        </div>
+        <img
+          src="https://d35aaqx5ub95lt.cloudfront.net/images/hearts/7631e3ee734dd4fe7792626b59457fa4.svg"
+          alt="heart"
+          class="heart"
+        />
+        <p id="heartsCountElement" class="hearts-count">5</p>
+      </div>
+      <div class="display">
+        <h2 class="task">Bu cumleyi çevir:</h2>
+        <div class="char-block">
+          <img
+            class="character"
+            src="https://media2.giphy.com/media/MNMvqqvjpv8vIiOWS8/giphy.gif"
+            alt="Maksim"
+          />
+          <div class="cloud">
+            <div class="designEl1"></div>
+            <div class="designEl2"></div>
+            <p>His work is continues.</p>
+          </div>
+        </div>
+        <div id="output1" class="user-answer-block1"></div>
+        <div id="output2" class="user-answer-block2"></div>
+      </div>
+      <div id="answersContainer" class="answers-container"></div>
+      <button onclick="control()" class="ctrl-btn">KONTROL ET</button>
+      <div id="successContainer" class="success-container">
+        <div class="success-bird">
+          <img
+            src="https://d35aaqx5ub95lt.cloudfront.net/images/bed2a542bc7eddc78e75fbe85260b89e.svg"
+          />
+        </div>
+        <div class="antiFlex">
+          <h2>Mükemmel!</h2>
+          <button onclick="newLvl()" class="ctrl-btn2">Növbeti</button>
+        </div>
+      </div>
+      <div id="failedContainer" class="failed-container">
+        <div class="failed-bird">
+          <img
+            src="https://d35aaqx5ub95lt.cloudfront.net/images/9a4bf74a74e801ca35402f2c2837e24c.svg"
+          />
+        </div>
+        <div class="failedFlex">
+          <h2>Doğru cevab:</h2>
+          <p>Onun işi devam eder</p>
+          <button onclick="tryAgain()" class="ctrl-btn3">Tekrar</button>
+        </div>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
