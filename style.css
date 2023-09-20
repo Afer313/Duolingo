@@ -202,19 +202,12 @@ body {
   height: 38px;
   margin-top: 65px;
 }
-@media only screen and (max-width: 1670px) {
+@media screen and (max-width: 1670px) {
   body {
     background: url("https://img.myloview.ru/murals/pattern-seamless-texture-vector-background-abstract-geometric-design-modern-fabric-graphic-textile-white-line-backdrop-decoration-illustration-print-ornament-black-decor-retro-tile-repeat-element-art-400-101276542.jpg");
   }
   .content-container {
-  overflow: hidden;
-  width: 318px;
-  height: 685px;
-  border-radius: 40px;
-  background-color: rgb(255, 255, 255);
-  position: relative;
   margin: 0px auto;
-  padding: 18px;
 }
 }
 .success-container {
