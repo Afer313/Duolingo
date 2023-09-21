@@ -32,15 +32,16 @@
           />
           <div class="cloud">
             <div class="designEl1"></div>
-            <div class="designEl2"></div>
-            <p>His work is continues.</p>
+            <div class="designEl2">
+              <p id="toTranslate">His work is continues.</p>
+            </div>
           </div>
         </div>
         <div id="output1" class="user-answer-block1"></div>
         <div id="output2" class="user-answer-block2"></div>
       </div>
       <div id="answersContainer" class="answers-container"></div>
-      <button onclick="control()" class="ctrl-btn">KONTROL ET</button>
+      <button onclick="control()" class="ctrl-btn">Yoxla !</button>
       <div id="successContainer" class="success-container">
         <div class="success-bird">
           <img
@@ -48,8 +49,8 @@
           />
         </div>
         <div class="antiFlex">
-          <h2>Mükemmel!</h2>
-          <button onclick="newLvl()" class="ctrl-btn2">Növbeti</button>
+          <h2>Əla!</h2>
+          <button onclick="newLvl()" class="ctrl-btn2">Növbəti</button>
         </div>
       </div>
       <div id="failedContainer" class="failed-container">
@@ -59,9 +60,9 @@
           />
         </div>
         <div class="failedFlex">
-          <h2>Doğru cevab:</h2>
-          <p>Onun işi devam eder</p>
-          <button onclick="tryAgain()" class="ctrl-btn3">Tekrar</button>
+          <h2>Doğru cavab:</h2>
+          <p id="trueShow">Onun işi devam edir</p>
+          <button onclick="tryAgain()" class="ctrl-btn3">Təkrar</button>
         </div>
       </div>
     </div>
