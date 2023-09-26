@@ -1,3 +1,5 @@
+const content_container = document.getElementById("content-container");
+const quit_conainer = document.getElementById("quit-container");
 const answersContainer = document.getElementById("answersContainer");
 const output1 = document.getElementById("output1");
 const output2 = document.getElementById("output2");
@@ -5,9 +7,24 @@ const heartsCountElement = document.getElementById("heartsCountElement");
 const successContainer = document.getElementById("successContainer");
 const failedContainer = document.getElementById("failedContainer");
 const levelScoreIndicator = document.getElementById("levelScoreIndicator");
+
+let characterEl = document.getElementById("character");
 let indicator = 0;
 let toTranlate = document.getElementById("toTranslate");
 let trueShow = document.getElementById("trueShow");
+
+const gif_urls = [
+  "img/1stGif.gif", //1
+  "img/2ndGif.gif", //2
+  "img/3rdGif.gif", //3
+  "img/4thGif.gif", //4
+  "img/5thGif.gif", //5
+  "img/6thGif.gif", //6
+  "img/7thGif.gif", //7
+  "img/8thGif.gif", //8
+  "img/9thGif.gif", //9
+  "img/10thGif.gif", //10
+];
 
 const toTranlateValues = [
   "His work is continues.", //1
@@ -251,26 +268,9 @@ function giveMeBackPlease(wordValue, set) {
 }
 
 function control() {
-  finalAnswer = forOutput.concat(forOutput2);
-  if (finalAnswer.length !== rightAnswer.length) {
-    failed();
-    heartCount--;
-    if (heartCount < 0) {
-      heartCount = 0;
-    }
-    heartsCountElement.innerHTML = heartCount;
-    gameOver();
-  } else {
-    let correct = true;
-    for (let i = 0; i < rightAnswer.length; i++) {
-      if (finalAnswer[i] !== rightAnswer[i]) {
-        correct = false;
-        break;
-      }
-    }
-    if (correct) {
-      success();
-    } else {
+  let finalAnswer = forOutput.concat(forOutput2);
+  if (finalAnswer.length != 0) {
+    if (finalAnswer.length !== rightAnswer.length) {
       failed();
       heartCount--;
       if (heartCount < 0) {
@@ -278,12 +278,33 @@ function control() {
       }
       heartsCountElement.innerHTML = heartCount;
       gameOver();
+    } else {
+      let correct = true;
+      for (let i = 0; i < rightAnswer.length; i++) {
+        if (finalAnswer[i] !== rightAnswer[i]) {
+          correct = false;
+          break;
+        }
+      }
+      if (correct) {
+        success();
+      } else {
+        failed();
+        heartCount--;
+        if (heartCount < 0) {
+          heartCount = 0;
+        }
+        heartsCountElement.innerHTML = heartCount;
+        gameOver();
+      }
     }
+  } else {
+    alert("Zəhmət olmasa, secim edin.");
   }
 }
 
 function success() {
-  if(indicator<100){
+  if (indicator < 100) {
     indicator += 10;
   }
   successContainer.style.bottom = "0px";
@@ -300,6 +321,7 @@ function newLvl() {
   successContainer.style.bottom = "-110px";
   if (indicator < 100) {
     taskCounter++;
+    characterEl.src = `${gif_urls[taskCounter]}`;
     toTranlate.innerHTML = toTranlateValues[taskCounter];
     answersArr = levels[taskCounter].answersArr;
     rightAnswer = levels[taskCounter].rightAnswer;
@@ -318,4 +340,21 @@ function gameOver() {
   }
 }
 
+function close_btn() {
+  document.querySelector(".main-content").style.display = "none";
+  quit_conainer.style.display = `block`;
+  content_container.style.backgroundImage = `url('https://i.pinimg.com/736x/47/b6/6e/47b66e5795b5a857822adeaf342eaf8a.jpg')`;
+  content_container.style.backgroundSize = "100%";
+  quit_conainer.innerHTML = `<div class = 'realyQuit'><p>Are you sure?</p> <button class="ctrl-btn-quit" onclick='sureToQuit()'>Sure</button> <button class="ctrl-btn-quit" onclick='notSureToQuit()'>No..</button><div>`;
+}
+function sureToQuit() {
+  content_container.style.background = `url('https://image.winudf.com/v2/image1/Z2lhcC5sZ2UudXg4X3NjcmVlbl8wXzE1NTU0OTM3MjZfMDk0/screen-1.webp?fakeurl=1&type=.webp')`;
+  content_container.style.backgroundSize = "100%";
+  quit_conainer.style.display = `none`;
+}
+function notSureToQuit() {
+  content_container.style.backgroundImage = `none`;
+  document.querySelector(".main-content").style.display = "block";
+  quit_conainer.style.display = `none`;
+}
 answersLoad();
